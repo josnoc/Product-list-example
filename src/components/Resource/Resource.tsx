@@ -20,13 +20,15 @@ export default class Resource<R, E> extends React.Component<
     try {
       this.setState({ loading: true });
       const response = (await axios.get(this.props.path)).data;
-      this.setState({ response });
+      this.setState({ loading: false, response });
     } catch (e) {
-      this.setState({ error: e });
+      this.setState({ loading: false, error: e });
     }
   }
 
   render() {
+    if (!this.state) return null;
+
     return this.props.render(this.state);
   }
 }
