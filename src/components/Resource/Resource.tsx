@@ -6,7 +6,7 @@ interface IResourceProps<R, E> {
   render: (state: IResourceState<R, E>) => React.ReactNode;
 }
 
-interface IResourceState<R, E> {
+export interface IResourceState<R, E> {
   loading: boolean;
   error: E;
   response: R;
