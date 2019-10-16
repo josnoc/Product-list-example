@@ -1,0 +1,41 @@
+@import "../../settings.scss";
+
+.product {
+  &.quick-view {
+    display: grid;
+    background-color: white;
+
+    .img {
+      width: 100%;
+    }
+
+    .details {
+      padding: 1.25rem 0;
+      display: grid;
+      justify-items: center;
+
+      .detail {
+        padding: 0.5rem;
+      }
+
+      .header {
+        color: $lightBlack;
+        font-size: 1.6rem;
+      }
+
+      .price {
+        position: relative;
+        font-size: 1.3rem;
+        color: $primary;
+
+        .decimal {
+          position: absolute;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  &.detailed {
+  }
+}

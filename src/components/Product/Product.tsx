@@ -1,17 +1,31 @@
 import * as React from "react";
 import "./Product.scss";
 
+export enum ProductStyles {
+  detailed = "detailed",
+  quickView = "quick-view"
+}
+
 export interface IProductProps {
   name: string;
-  price: number;
+  /**
+   * Can either be a *number*
+   */
+  price: number | string[];
   image: string;
+  style: ProductStyles;
 }
 
 const Product = (props: IProductProps) => (
-  <div className="product">
-    <img src={props.image} alt={props.name} />
-    <p className="name">{props.name}</p>
-    <p className="price">{props.price}</p>
+  <div className={`product ${props.style}`}>
+    <img className="img" src={props.image} alt={props.name} />
+    <div className="details">
+      <p className="detail header name">{props.name}</p>
+      <h3 className="detail price">
+        <span className="integer">{(props.price as string[])[0]},</span>
+        <span className="decimal">{(props.price as string[])[1]}</span>
+      </h3>
+    </div>
   </div>
 );
 
