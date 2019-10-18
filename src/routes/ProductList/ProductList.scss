@@ -1,0 +1,35 @@
+@import "../../settings.scss";
+$gridGap: 0.25rem;
+
+@mixin template-columns($columns, $gap) {
+  grid-template-columns: repeat(
+    $columns,
+    calc((100% / #{$columns}) - #{$gap * ($columns - 1) / $columns})
+  );
+}
+
+.product-list-container {
+  .product-list {
+    display: grid;
+    grid-gap: $gridGap;
+    @include template-columns(2, $gridGap);
+  }
+}
+
+@media (min-width: 768px) {
+  $columns: 3;
+  .product-list-container {
+    .product-list {
+      @include template-columns(3, $gridGap);
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  $columns: 3;
+  .product-list-container {
+    .product-list {
+      @include template-columns(6, $gridGap);
+    }
+  }
+}
