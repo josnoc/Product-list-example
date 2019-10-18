@@ -1,0 +1,59 @@
+@import "../../settings.scss";
+
+.loading-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+
+  &.full-screen {
+    height: 100vh;
+  }
+
+  .loading-dot {
+    margin: 0 15px;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 100%;
+  }
+
+  $duration: 1.5s;
+  $delay: $duration / 8;
+
+  div:nth-child(1) {
+    background-color: $primary;
+    animation: bump $duration ease-in infinite;
+  }
+
+  div:nth-child(2) {
+    background-color: $primary;
+    animation: bump $duration ease-in $delay infinite;
+  }
+
+  div:nth-child(3) {
+    background-color: $primary;
+    animation: bump $duration ease-in $delay * 2 infinite;
+  }
+
+  div:nth-child(4) {
+    background-color: $primary;
+    animation: bump $duration ease-in $delay * 3 infinite;
+  }
+}
+
+@keyframes bump {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
