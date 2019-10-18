@@ -1,8 +1,8 @@
 @import "./settings.scss";
 
 * {
-  margin: 0px;
   font-family: "Lato", sans-serif;
+  margin: 0px;
 }
 
 body {
@@ -11,4 +11,8 @@ body {
 
 h1 {
   color: $black;
+}
+
+a {
+  text-decoration: none;
 }
