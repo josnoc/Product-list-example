@@ -6,7 +6,8 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js"
+    filename: "[name].js",
+    publicPath: "/"
   },
   devtool: "source-map",
 
@@ -58,5 +59,25 @@ module.exports = {
       ],
       links: ["https://fonts.googleapis.com/css?family=Lato"]
     })
-  ]
+  ],
+  optimization: {
+    chunkIds: "named",
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          chunks: "initial",
+          name: "vendor",
+          priority: 10,
+          enforce: true
+        }
+      }
+    }
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    historyApiFallback: true,
+    compress: true,
+    port: 8080
+  }
 };

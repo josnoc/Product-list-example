@@ -6,7 +6,8 @@
     "member-access": false,
     "arrow-parens": false,
     "trailing-comma": false,
-    "curly": false
+    "curly": false,
+    "semicolon": [true, "always", "ignore-bound-class-methods"]
   },
   "rulesDirectory": [],
   "linterOptions": {
