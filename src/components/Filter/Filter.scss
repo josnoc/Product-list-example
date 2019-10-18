@@ -1,0 +1,68 @@
+@import "../../settings.scss";
+
+.filter {
+  align-items: center;
+  background-color: $primary;
+  display: grid;
+  height: 3.5rem;
+  justify-items: center;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+
+  &.sticky {
+    position: fixed;
+    animation: to-sticky-transition 0.3s ease-in;
+
+    & + * {
+      margin-top: 3.5rem;
+    }
+  }
+
+  .styled-txt {
+    display: grid;
+    position: relative;
+    width: 80%;
+
+    .label {
+      color: $disabled;
+      left: 5px;
+      position: absolute;
+      transition: all 0.3s ease-in;
+    }
+
+    .query {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1.5px solid $disabled;
+      color: white;
+      font-size: 1.3rem;
+      height: 1.5rem;
+      outline-width: 0;
+      padding: 0 15px;
+      transition: all 0.3s ease-in;
+
+      &:focus,
+      &:valid {
+        border-bottom-color: $active;
+        transform: translateY(5px);
+
+        & + .label {
+          color: $active;
+          font-size: 0.6rem;
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}
+
+@keyframes to-sticky-transition {
+  $componentHeight: -3.5rem;
+  0% {
+    transform: translateY($componentHeight);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
